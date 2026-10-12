@@ -1,0 +1,164 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+:root{
+    --navbar-height:60px;
+    height: 70px;
+}
+#navbar{
+    display: flex;
+    position: relative;
+    align-items: center;
+    top:0px;
+}
+#navbar ul{
+    display: flex;
+}
+#navbar::before{
+    content:"";
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index:-1;
+    opacity: 0.7;
+}
+#logo img{
+    margin:15px 20px;
+    height:70px;
+}
+#navbar ul li{
+    list-style: none;
+    font-size :1rem;
+    
+}
+#navbar ul li a{
+    display: block;
+    color:aqua;
+    padding:4px 20px;
+    border-radius:20px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#navbar ul li a:hover{
+    color:black;
+    background-color:rgb(210, 250, 225)
+}
+#home{
+    display:flex;
+    flex-direction: column;
+    padding:3px 200px;
+    height:800px;
+    justify-content:center;
+    align-items:center;
+}
+::before{
+    content:"";
+    background: url("../images/digital-e-commerce-sales-increase-save-time-and-money-with-multiple-products-in-one-cart-shop-with-confidence-e-commerce-concept-ai-generative-free-photo.webp") no-repeat center center/cover;
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:500px;
+    width:100%;
+    z-index:-1;
+    opacity:0.9;
+    
+
+}
+h1{
+    color:rgb(231, 231, 48);
+    text-align:center;
+    font-size:2.5rem;
+}
+p{
+    color:rgb(255, 255, 255);
+    text-align: center;
+    font-size:1.2rem;
+    margin:10px;
+    line-height:40px;
+}
+.btn{
+    padding:14px 31px;
+    border:2px solid white;
+    background-color:yellow;
+    color:black;
+    margin:17px;
+    font-size:1.0rem;
+    border-radius:25px;
+    cursor:pointer;
+    
+    
+}
+.btn:hover{
+    background-color: black;
+    color:white;
+
+}
+.center{
+    text-align:center;
+    color:black;
+}
+h2{
+    color:rgb(188, 188, 176);
+    text-align:center;
+    font-size:2.5rem;
+}
+#services{
+          margin:30px;
+          display:flex;
+          flex-direction: column;
+
+}
+#services .box{
+    border:2px solid yellow;
+    padding:25px;
+    margin:2px 4px;
+    border-radius:10px;
+    background-color:rgb(254, 254, 32);
+    transition: all 7s ease-in-out;
+    transition-duration :1s;
+}
+#services .box:hover{
+     transform:scale(0.9);
+     background-color: white;
+}
+#services .box img{
+    height:150px;
+    display: block;
+    margin: auto;
+}
+#services .box p{
+    font-family: 'Courier New', Courier, monospace;
+}
+#products img{
+    height:150px;
+    border-radius:25px;
+    padding:15px;
+}
+#items{
+    padding:14px;
+}
+#products{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#products-section h1{
+    color:white;
+    align-items:center;
+    font-size:2.5rem;
+}
+footer{
+    background-color: black;
+    color:white;
+    padding:20px;
+    margin-bottom:0px;
+}
+
+
+
+
+
+
+
