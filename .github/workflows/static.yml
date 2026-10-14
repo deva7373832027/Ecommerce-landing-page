@@ -1,43 +1,329 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Landing Page</title><style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+    :root {
+        --navbar-height: 70px;
+    }
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+    }
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    /* Navigation Bar */
+    #navbar {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 10px 30px;
+        min-height: var(--navbar-height);
+    }
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    #navbar::before {
+        content: "";
+        background-color: black;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.9;
+    }
 
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+    #logo img {
+        height: 60px;
+        width: 70px;
+        object-fit: contain;
+        margin-right: 30px;
+    }
+
+    #navbar ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+
+    #navbar ul li a {
+        display: block;
+        color: aqua;
+        padding: 10px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+    #navbar ul li a:hover {
+        color: black;
+        background-color: rgb(210, 250, 225);
+    }
+
+    /* Home Section */
+    #home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 60px 100px;
+        min-height: 450px;
+        position: relative;
+    }
+
+    #home::before {
+        content: "";
+        background: url("../images/digital-e-commerce-sales-increase-save-time-and-money-with-multiple-products-in-one-cart-shop-with-confidence-e-commerce-concept-ai-generative-free-photo.webp") no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        opacity: 0.9;
+    }
+
+    h1 {
+        color: rgb(231, 231, 48);
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    #home p {
+        color: white;
+        text-align: center;
+        font-size: 1.1rem;
+        margin: 20px 0;
+        line-height: 1.8;
+    }
+
+    .btn {
+        padding: 14px 31px;
+        border: 2px solid white;
+        background-color: yellow;
+        color: black;
+        margin: 17px;
+        font-size: 1rem;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: black;
+        color: white;
+    }
+
+    /* Services Section */
+    .services {
+        padding: 40px 20px;
+        background-color: #f5f5f5;
+    }
+
+    .h-primary {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .center {
+        text-align: center;
+        color: black;
+    }
+
+    #services {
+        margin: 30px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1200px;
+    }
+
+    #services .box {
+        flex: 1;
+        border: 2px solid yellow;
+        padding: 25px;
+        border-radius: 10px;
+        background-color: rgb(254, 254, 32);
+        transition: all 0.5s ease-in-out;
+    }
+
+    #services .box:hover {
+        transform: scale(1.03);
+        background-color: white;
+    }
+
+    #services .box img {
+        height: 150px;
+        max-width: 100%;
+        display: block;
+        margin: auto;
+        object-fit: contain;
+    }
+
+    h2 {
+        color: rgb(70, 70, 60);
+        text-align: center;
+        font-size: 1.8rem;
+        margin: 15px 0;
+    }
+
+    #services .box p {
+        font-family: Arial, sans-serif;
+        color: #333;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* Products Section */
+    #products {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 30px;
+    }
+
+    #products img {
+        height: 150px;
+        border-radius: 25px;
+        padding: 15px;
+    }
+
+    #items {
+        padding: 14px;
+    }
+
+    #products-section {
+        padding: 30px;
+        background-color: #222;
+    }
+
+    #products-section h1 {
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    /* Footer */
+    footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        #navbar {
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        #navbar ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #home {
+            padding: 50px 20px;
+        }
+
+        #services {
+            flex-direction: column;
+        }
+
+        .h-primary {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+</head><body><!-- Navigation Bar -->
+<header>
+    <nav id="navbar">
+
+        <div id="logo">
+            <img src="static/images/creative-modern-abstract-ecommerce-logo-design-colorful-gradient-online-shopping-bag-logo-design-template-free-vector.png" alt="Ecommerce Logo">
+        </div>
+
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#services">Products</a></li>
+            <li class="item"><a href="#services">Services</a></li>
+            <li class="item"><a href="#about">About</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<!-- Home Section -->
+<section id="home">
+
+    <h1 class="h-primary">Welcome to Ecommerce Cart</h1>
+
+    <p>
+        Discover amazing products at the best prices.
+        Shop your favourite items online with ease.
+        Enjoy quality products and a great shopping experience.
+    </p>
+
+    <button class="btn" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+        View Products
+    </button>
+
+</section>
+
+<!-- Services Section -->
+<section class="services">
+
+    <h1 class="h-primary center">Our Services</h1>
+
+    <div id="services">
+
+        <div class="box">
+            <img src="static/images/man-holds-glass-ball-that-says-service-service-it_973183-26231.avif" alt="Products">
+            <h2 class="h-secondary center">Products</h2>
+            <p>
+                Explore our wide range of quality products.
+                Find the best items at affordable prices.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="static/images/man-holds-glass-ball-that-says-service-service-it_973183-26231.avif" alt="Fashion">
+            <h2 class="h-secondary center">Fashion</h2>
+            <p>
+                Discover the latest fashion trends.
+                Find stylish clothes and accessories for every occasion.
+            </p>
+        </div>
+
+        <div class="box">
+            <img src="static/images/man-holds-glass-ball-that-says-service-service-it_973183-26231.avif" alt="Groceries">
+            <h2 class="h-secondary center">Groceries</h2>
+            <p>
+                Shop your daily grocery needs in one place.
+                Enjoy convenient and easy online shopping.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Copyright &copy; 2026 Ecommerce Cart. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
